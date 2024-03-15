@@ -8,6 +8,10 @@ function App() {
     return stored ? JSON.parse(stored) : [];
   });
 
+  const handleClear = () => {
+    setStoredValues([]);
+  };
+
   useEffect(() => {
     localStorage.setItem('inputValues', JSON.stringify(storedValues));
   }, [storedValues]);
@@ -41,6 +45,11 @@ function App() {
       <div className="App">
         <h1>Word Cloud Visualization</h1>
         <WordCloudVisualization words={storedValues} />
+      </div>
+
+      <button onClick={handleClear} style={{ marginTop: '20px' }}>Clear Visualization (DO NOT use if necessary)</button>
+      <div style={{ marginTop: '20px', borderTop: '1px solid #ccc', paddingTop: '10px' }}>
+        <p style={{ textAlign: 'center' }}>Contents of the cloud: {storedValues.join(', ')}</p>
       </div>
     </div>
   );

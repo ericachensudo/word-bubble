@@ -11,7 +11,7 @@ function WordCloudVisualization({ words }) {
 
     const updateCloud = () => {
       cloud
-        .words(words.map(word => ({ text: word, size: 10 })))
+        .words(words.map(word => ({ text: word.text, size: word.size })))
         .start();
     };
 
@@ -26,7 +26,7 @@ function WordCloudVisualization({ words }) {
     const layout = d3Cloud()
       .size([width, height])
       .padding(5)
-      .words(words.map(word => ({ text: word, size: 10 })))
+      .words(words.map(word => ({ text: word.text, size: word.size })))
       .rotate(() => ~~(Math.random() * 2) * 90)
       .font("Arial")
       .fontSize(d => d.size)
