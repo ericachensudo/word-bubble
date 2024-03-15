@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import WordCloudVisualization from './components/WordCloudVisualization';
+import './App.css';
 
 function App() {
   const [text, setText] = useState('');
@@ -29,7 +30,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="App">
       <h1>What are you grateful for right now?</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -39,7 +40,8 @@ function App() {
           placeholder="Type something..."
           style={{ padding: '10px', fontSize: '16px', marginBottom: '20px' }}
         />
-        <button type="submit">Submit</button>
+        <br />
+        <button type="submit" className="rounded-button">Submit</button>
       </form>
 
       <div className="App">
@@ -47,8 +49,10 @@ function App() {
         <WordCloudVisualization words={storedValues} />
       </div>
 
-      <button onClick={handleClear} style={{ marginTop: '20px' }}>Clear Visualization (DO NOT use if necessary)</button>
       <div style={{ marginTop: '20px', borderTop: '1px solid #ccc', paddingTop: '10px' }}>
+      <div className="button-container">
+        <button onClick={handleClear} className="rounded-button" style={{ marginTop: '20px' }}>DO NOT PRESS</button>
+      </div>
         <p style={{ textAlign: 'center' }}>Contents of the cloud: {storedValues.join(', ')}</p>
       </div>
     </div>

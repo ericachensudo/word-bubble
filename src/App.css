@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+.rounded-button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px; 
+  cursor: pointer;
+  outline: none;
+  border-radius: 15px; 
+}
+
+.rounded-button:hover {
+  background: darkred;
+}
+
+.button-container {
+  text-align: center;
+}
